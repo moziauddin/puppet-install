@@ -1,0 +1,13 @@
+- hosts: targets
+
+  tasks:
+    - name: Print WhoAmI
+      shell: whoami
+
+  roles:
+    - role: java
+      when: "ansible_os_family == 'Debian'"
+      java_packages:
+        - openjdk-8-jdk
+
+    - role: puppet
