@@ -7,7 +7,7 @@ node {
    stage("Installatiion") {
        dir("install-dir") {
            sh 'pwd && whoami && ls -lahF'
-           sh 'ansible-playbook playbooks/install-puppet.yml -i inventory/main.yml -v'
+           sh 'ansible-playbook playbooks/install-puppet.yml -i inventory/main.yml -vvvv'
    }
  }
 }
