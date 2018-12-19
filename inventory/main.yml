@@ -3,4 +3,6 @@ localhost
 
 [targets:vars]
 ansible_user=vagrant
-ansible_connection=local
+ansible_connection=ssh
+ansible_become=yes
+ansible_become_method=enable

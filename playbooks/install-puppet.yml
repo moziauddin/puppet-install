@@ -7,7 +7,9 @@
   roles:
     - role: java
       when: "ansible_os_family == 'Debian'"
-      java_packages:
+      java_package:
         - openjdk-8-jdk
+      become: yes
 
     - role: puppet
+      become: yes
