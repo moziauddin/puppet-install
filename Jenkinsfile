@@ -5,8 +5,9 @@ node {
        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'install-dir']], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/moziauddin/puppet-install.git']]])
    }
    stage("Installatiion") {
-       sh 'cd install-dir'
-       sh 'pwd && whoami && ls -lahF'
-       sh 'ansible-playbook playbooks/install-puppet.yml -i inventory/main.yml -v'
+       dir("install-dir") {
+           sh 'pwd && whoami && ls -lahF'
+           sh 'ansible-playbook playbooks/install-puppet.yml -i inventory/main.yml -v'
    }
+ }
 }
