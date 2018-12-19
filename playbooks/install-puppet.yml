@@ -1,9 +1,5 @@
 - hosts: targets
 
-  tasks:
-    - name: Print WhoAmI
-      shell: whoami
-
   roles:
     - role: java
       when: "ansible_os_family == 'Debian'"
